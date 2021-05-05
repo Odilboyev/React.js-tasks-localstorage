@@ -5,7 +5,7 @@ import Alert from './Alert'
 function App() {
   const [name, setName] = useState('')
   const [list, setList] = useState([])
-  const [isEditing, setIsEditing] = useState(true)
+  const [isEditing, setIsEditing] = useState(false)
   const [editID, setEditID] = useState(null)
   const [alert, setAlert] = useState({show:false, msg: '', type:''});
   const handleSubmit = (e) => {
@@ -41,7 +41,7 @@ function App() {
       </div>
     </form>
     <div className="grocery-container">
-      <List/>
+      <List items = {list}/>
       <button className="clear-btn">Clear</button>
     </div>
 
