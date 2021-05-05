@@ -21,11 +21,22 @@ function App() {
       const newItem =  {id: new Date().getTime().toString(), title: name};
       setList([...list, newItem])
       setName('');
+      showAlert(true, "success", "Todo added")
     }
   }
   
   const showAlert = (show = false, type='', msg='') => {
     setAlert({show, type, msg})
+  }
+
+  const clearList = () => {
+    showAlert(true, 'danger', 'Todo deleted')
+    setList([])
+  }
+
+  const removeItem = (id) => {
+    showAlert(true, 'danger', 'item deleted')
+    setList(list.filter(item => item.id !== id))
   }
   return <section className="section-center">
 
@@ -48,8 +59,8 @@ function App() {
     </form>
     {list.length >0 &&(
       <div className="grocery-container">
-      <List items = {list}/>
-      <button className="clear-btn">Clear</button>
+      <List items = {list} removeItem={removeItem}/>
+      <button onClick={clearList} className="clear-btn">Clear</button>
     </div>
     )}
     
