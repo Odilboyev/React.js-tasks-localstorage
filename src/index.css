@@ -198,6 +198,7 @@ Grocery List
   text-align: center;
 }
 .form-control {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
